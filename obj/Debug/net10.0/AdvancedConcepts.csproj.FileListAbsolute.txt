@@ -1,0 +1,14 @@
+C:\Users\aanch\Downloads\AdvancedConcept\AdvancedConcepts\bin\Debug\net10.0\AdvancedConcepts.exe
+C:\Users\aanch\Downloads\AdvancedConcept\AdvancedConcepts\bin\Debug\net10.0\AdvancedConcepts.deps.json
+C:\Users\aanch\Downloads\AdvancedConcept\AdvancedConcepts\bin\Debug\net10.0\AdvancedConcepts.runtimeconfig.json
+C:\Users\aanch\Downloads\AdvancedConcept\AdvancedConcepts\bin\Debug\net10.0\AdvancedConcepts.dll
+C:\Users\aanch\Downloads\AdvancedConcept\AdvancedConcepts\bin\Debug\net10.0\AdvancedConcepts.pdb
+C:\Users\aanch\Downloads\AdvancedConcept\AdvancedConcepts\obj\Debug\net10.0\AdvancedConcepts.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\aanch\Downloads\AdvancedConcept\AdvancedConcepts\obj\Debug\net10.0\AdvancedConcepts.AssemblyInfoInputs.cache
+C:\Users\aanch\Downloads\AdvancedConcept\AdvancedConcepts\obj\Debug\net10.0\AdvancedConcepts.AssemblyInfo.cs
+C:\Users\aanch\Downloads\AdvancedConcept\AdvancedConcepts\obj\Debug\net10.0\AdvancedConcepts.csproj.CoreCompileInputs.cache
+C:\Users\aanch\Downloads\AdvancedConcept\AdvancedConcepts\obj\Debug\net10.0\AdvancedConcepts.dll
+C:\Users\aanch\Downloads\AdvancedConcept\AdvancedConcepts\obj\Debug\net10.0\refint\AdvancedConcepts.dll
+C:\Users\aanch\Downloads\AdvancedConcept\AdvancedConcepts\obj\Debug\net10.0\AdvancedConcepts.pdb
+C:\Users\aanch\Downloads\AdvancedConcept\AdvancedConcepts\obj\Debug\net10.0\AdvancedConcepts.genruntimeconfig.cache
+C:\Users\aanch\Downloads\AdvancedConcept\AdvancedConcepts\obj\Debug\net10.0\ref\AdvancedConcepts.dll

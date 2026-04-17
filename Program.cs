@@ -36,6 +36,7 @@
             Price=945.34m,
             VideoCard="RTX 2060"
         };
+        myComputer.HasWifi=false;
         Console.WriteLine(myComputer.Motherboard);
         Console.WriteLine(myComputer.HasWifi);
         Console.WriteLine(myComputer.ReleasDate);

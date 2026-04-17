@@ -1,5 +1,9 @@
 ﻿public class Computer
 {
+    // public string Motherboard { get; set; } = "";
+    // default values could be set as above as well
+
+
     public string Motherboard {get; set;}
     public int CPUCores {get; set;}
 
@@ -37,6 +41,7 @@
             VideoCard="RTX 2060"
         };
         myComputer.HasWifi=false;
+        myComputer.Price=333.3m;
         Console.WriteLine(myComputer.Motherboard);
         Console.WriteLine(myComputer.HasWifi);
         Console.WriteLine(myComputer.ReleasDate);

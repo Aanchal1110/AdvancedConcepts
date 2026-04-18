@@ -4,10 +4,10 @@ public class Computer
 {
     // public string Motherboard { get; set; } = "";
     // default values could be set as above as well
-
+    public int ComputerId{get;set;}
 
     public string Motherboard {get; set;}
-    public int CPUCores {get; set;}
+    public int ?CPUCores {get; set;}
 
     public bool HasWifi{get; set;}
 

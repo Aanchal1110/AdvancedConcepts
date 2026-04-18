@@ -13,6 +13,8 @@ namespace HelloWorld{
         {
             DataContextDapper dapper=new DataContextDapper();
 
+            DataContextEF entityFramework=new DataContextEF();
+
             
 
             DateTime rightNow=dapper.LoadDataSingle<DateTime>("SELECT GETDATE()");
@@ -27,6 +29,11 @@ namespace HelloWorld{
             Price=945.34m,
             VideoCard="RTX 2060"
         };
+
+    //Inserting using entityframework is done without using the sql query
+    entityFramework.Add(myComputer);
+    entityFramework.SaveChanges();
+
         // myComputer.HasWifi=false;
         // myComputer.Price=333.3m;
         // Console.WriteLine(myComputer.Motherboard);
@@ -73,6 +80,23 @@ namespace HelloWorld{
         IEnumerable<Computer> computers=dapper.LoadData<Computer>(sqlSelect);
 
         foreach(Computer singleComputer in computers)
+            {
+                Console.WriteLine("'"+ singleComputer.Motherboard
+                +"','"+singleComputer.HasWifi
+                +"','"+singleComputer.HasLTE
+                +"','"+singleComputer.ReleaseDate
+                +"','"+singleComputer.Price
+                +"','"+singleComputer.VideoCard
+                );
+            }
+
+        Console.WriteLine("'Motherboard','HasWifi','HasLTE','Releasedate','Price','Videocard'"
+
+                );
+
+        IEnumerable<Computer> computersEf=entityFramework.Computer.ToList<Computer>();
+
+        foreach(Computer singleComputer in computersEf)
             {
                 Console.WriteLine("'"+ singleComputer.Motherboard
                 +"','"+singleComputer.HasWifi

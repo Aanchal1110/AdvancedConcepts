@@ -21,19 +21,69 @@ namespace HelloWorld{
 
              Computer myComputer=new Computer()
         {
-            Motherboard="2035",
+            Motherboard="203678",
             HasWifi=true,
             HasLTE=false,
-            ReleasDate=DateTime.Now,
+            ReleaseDate =DateTime.Now,
             Price=945.34m,
             VideoCard="RTX 2060"
         };
-        myComputer.HasWifi=false;
-        myComputer.Price=333.3m;
-        Console.WriteLine(myComputer.Motherboard);
-        Console.WriteLine(myComputer.HasWifi);
-        Console.WriteLine(myComputer.ReleasDate);
-        Console.WriteLine(myComputer.VideoCard);
+        // myComputer.HasWifi=false;
+        // myComputer.Price=333.3m;
+        // Console.WriteLine(myComputer.Motherboard);
+        // Console.WriteLine(myComputer.HasWifi);
+        // Console.WriteLine(myComputer.ReleasDate);
+        // Console.WriteLine(myComputer.VideoCard);
+
+
+        string sql =@"INSERT INTO TAppSchema.Computer (
+        [MotherBoard],
+       [CPUCoreS],
+       [HasWifi],
+       [HasLTE],
+       [Price],
+       [VideoCard],
+       [ReleaseDate]
+        ) VALUES(@MotherBoard,
+    @CPUCoreS,
+    @HasWifi,
+    @HasLTE,
+    @Price,
+    @VideoCard,
+    @ReleaseDate)";
+        
+        Console.WriteLine(sql);
+        int result = dbConnection.Execute(sql, myComputer);
+        Console.WriteLine(result);
+
+        string sqlSelect=@"SELECT 
+        Computer.MotherBoard,
+       Computer.CPUCoreS,
+       Computer.HasWifi,
+       Computer.HasLTE,
+       Computer.Price,
+       Computer.VideoCard,
+       Computer.ReleaseDate
+        FROM TAppSchema.Computer";
+
+        Console.WriteLine("'Motherboard','HasWifi','HasLTE','Releasedate','Price','Videocard'"
+
+                );
+
+
+        IEnumerable<Computer> computers=dbConnection.Query<Computer>(sqlSelect);
+
+        foreach(Computer singleComputer in computers)
+            {
+                Console.WriteLine("'"+ singleComputer.Motherboard
+                +"','"+singleComputer.HasWifi
+                +"','"+singleComputer.HasLTE
+                +"','"+singleComputer.ReleaseDate
+                +"','"+singleComputer.Price
+                +"','"+singleComputer.VideoCard
+                );
+            }
+       
         }
        
     }

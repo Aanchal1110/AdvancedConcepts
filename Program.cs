@@ -1,4 +1,7 @@
 ﻿
+using System.Data;
+using Microsoft.Data.SqlClient;
+using Dapper;
 using HelloWorld.Models;
 
 namespace HelloWorld{
@@ -7,6 +10,15 @@ namespace HelloWorld{
     {
         static void Main(string[] args)
         {
+            string ConString="Server=localhost;Database=DotNetCourseDatabase;TrustServerCertificate=true;Trusted_Connection=true;";
+
+            IDbConnection dbConnection=new SqlConnection(ConString);
+
+            string sqlCommand="SELECT GETDATE()";
+
+            DateTime rightNow=dbConnection.QuerySingle<DateTime>(sqlCommand);
+            Console.WriteLine(rightNow);
+
              Computer myComputer=new Computer()
         {
             Motherboard="2035",

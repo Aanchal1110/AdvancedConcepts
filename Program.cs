@@ -3,6 +3,7 @@ using System.Data;
 using Microsoft.Data.SqlClient;
 using Dapper;
 using HelloWorld.Models;
+using HelloWorld.Data;
 
 namespace HelloWorld{
 
@@ -10,13 +11,11 @@ namespace HelloWorld{
     {
         static void Main(string[] args)
         {
-            string ConString="Server=localhost;Database=DotNetCourseDatabase;TrustServerCertificate=true;Trusted_Connection=true;";
+            DataContextDapper dapper=new DataContextDapper();
 
-            IDbConnection dbConnection=new SqlConnection(ConString);
+            
 
-            string sqlCommand="SELECT GETDATE()";
-
-            DateTime rightNow=dbConnection.QuerySingle<DateTime>(sqlCommand);
+            DateTime rightNow=dapper.LoadDataSingle<DateTime>("SELECT GETDATE()");
             Console.WriteLine(rightNow);
 
              Computer myComputer=new Computer()
@@ -52,8 +51,8 @@ namespace HelloWorld{
     @VideoCard,
     @ReleaseDate)";
         
-        Console.WriteLine(sql);
-        int result = dbConnection.Execute(sql, myComputer);
+        // Console.WriteLine(sql);
+        int result = dapper.ExecuteSqlWithRowCount(sql,myComputer);
         Console.WriteLine(result);
 
         string sqlSelect=@"SELECT 
@@ -71,7 +70,7 @@ namespace HelloWorld{
                 );
 
 
-        IEnumerable<Computer> computers=dbConnection.Query<Computer>(sqlSelect);
+        IEnumerable<Computer> computers=dapper.LoadData<Computer>(sqlSelect);
 
         foreach(Computer singleComputer in computers)
             {

@@ -4,6 +4,7 @@ using Microsoft.Data.SqlClient;
 using Dapper;
 using HelloWorld.Models;
 using HelloWorld.Data;
+using Microsoft.Extensions.Configuration;
 
 namespace HelloWorld{
 
@@ -11,9 +12,11 @@ namespace HelloWorld{
     {
         static void Main(string[] args)
         {
-            DataContextDapper dapper=new DataContextDapper();
+            IConfiguration config=new ConfigurationBuilder().AddJsonFile("AppSettings.json").Build();
 
-            DataContextEF entityFramework=new DataContextEF();
+            DataContextDapper dapper=new DataContextDapper(config);
+
+            DataContextEF entityFramework=new DataContextEF(config);
 
             
 

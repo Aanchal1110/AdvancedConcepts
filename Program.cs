@@ -82,16 +82,16 @@ namespace HelloWorld{
 
         IEnumerable<Computer> computers=dapper.LoadData<Computer>(sqlSelect);
 
-        foreach(Computer singleComputer in computers)
-            {
-                Console.WriteLine("'"+ singleComputer.Motherboard
-                +"','"+singleComputer.HasWifi
-                +"','"+singleComputer.HasLTE
-                +"','"+singleComputer.ReleaseDate
-                +"','"+singleComputer.Price
-                +"','"+singleComputer.VideoCard
-                );
-            }
+        // foreach(Computer singleComputer in computers)
+        //     {
+        //         Console.WriteLine("'"+ singleComputer.Motherboard
+        //         +"','"+singleComputer.HasWifi
+        //         +"','"+singleComputer.HasLTE
+        //         +"','"+singleComputer.ReleaseDate
+        //         +"','"+singleComputer.Price
+        //         +"','"+singleComputer.VideoCard
+        //         );
+        //     }
 
         Console.WriteLine("'Motherboard','HasWifi','HasLTE','Releasedate','Price','Videocard'"
 
@@ -99,16 +99,19 @@ namespace HelloWorld{
 
         IEnumerable<Computer> computersEf=entityFramework.Computer.ToList<Computer>();
 
-        foreach(Computer singleComputer in computersEf)
-            {
-                Console.WriteLine("'"+ singleComputer.Motherboard
-                +"','"+singleComputer.HasWifi
-                +"','"+singleComputer.HasLTE
-                +"','"+singleComputer.ReleaseDate
-                +"','"+singleComputer.Price
-                +"','"+singleComputer.VideoCard
-                );
-            }
+        // foreach(Computer singleComputer in computersEf)
+        //     {
+        //         Console.WriteLine("'"+ singleComputer.Motherboard
+        //         +"','"+singleComputer.HasWifi
+        //         +"','"+singleComputer.HasLTE
+        //         +"','"+singleComputer.ReleaseDate
+        //         +"','"+singleComputer.Price
+        //         +"','"+singleComputer.VideoCard
+        //         );
+        //     }
+
+            File.WriteAllText("log.txt",sql);
+            // using StreamWriter openFile=new("log.txt",append:true);
        
         }
        

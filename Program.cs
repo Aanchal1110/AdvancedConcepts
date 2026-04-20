@@ -5,6 +5,7 @@ using Dapper;
 using HelloWorld.Models;
 using HelloWorld.Data;
 using Microsoft.Extensions.Configuration;
+using System.Text.Json;
 
 namespace HelloWorld{
 
@@ -122,8 +123,22 @@ namespace HelloWorld{
             // Console.WriteLine(fileText);
 
             string ComputerJson=File.ReadAllText("Computers.json");
-            Console.WriteLine(ComputerJson);
-       
+            // Console.WriteLine(ComputerJson);
+
+            JsonSerializerOptions options =new JsonSerializerOptions()
+            {
+                PropertyNamingPolicy=JsonNamingPolicy.CamelCase
+            };
+
+            IEnumerable<Computer>? computers1=JsonSerializer.Deserialize<IEnumerable<Computer>>(ComputerJson, options);
+
+            if (computers1 != null)
+            {
+                foreach(Computer computer in computers1)
+                {
+                    Console.WriteLine(computer.Motherboard);
+                }
+            }
         }
        
     }

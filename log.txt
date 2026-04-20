@@ -12,4 +12,18 @@ INSERT INTO TAppSchema.Computer (
     @HasLTE,
     @Price,
     @VideoCard,
+    @ReleaseDate)INSERT INTO TAppSchema.Computer (
+        [MotherBoard],
+       [CPUCoreS],
+       [HasWifi],
+       [HasLTE],
+       [Price],
+       [VideoCard],
+       [ReleaseDate]
+        ) VALUES(@MotherBoard,
+    @CPUCoreS,
+    @HasWifi,
+    @HasLTE,
+    @Price,
+    @VideoCard,
     @ReleaseDate)

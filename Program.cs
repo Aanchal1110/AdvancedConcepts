@@ -110,14 +110,19 @@ namespace HelloWorld{
         //         );
         //     }
 
+            //Reading from and writing to the file
+
             // File.WriteAllText("log.txt",sql);
-            using StreamWriter openFile=new("log.txt",append:true);
+            // using StreamWriter openFile=new("log.txt",append:true);
 
-            openFile.WriteLine("\n"+sql+"\n");
+            // openFile.WriteLine("\n"+sql+"\n");
 
-            openFile.Close();
-            string fileText=File.ReadAllText("log.txt");
-            Console.WriteLine(fileText);
+            // openFile.Close();
+            // string fileText=File.ReadAllText("log.txt");
+            // Console.WriteLine(fileText);
+
+            string ComputerJson=File.ReadAllText("Computers.json");
+            Console.WriteLine(ComputerJson);
        
         }
        

@@ -7,6 +7,7 @@ using HelloWorld.Data;
 using Microsoft.Extensions.Configuration;
 using System.Text.Json;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 
 namespace HelloWorld{
 
@@ -126,27 +127,50 @@ namespace HelloWorld{
             string ComputerJson=File.ReadAllText("Computers.json");
             // Console.WriteLine(ComputerJson);
 
-            //Deserialization using text.json below
+            // Deserialization using text.json below
 
-            // JsonSerializerOptions options =new JsonSerializerOptions()
-            // {
-            //     PropertyNamingPolicy=JsonNamingPolicy.CamelCase
-            // };
-            
-            // IEnumerable<Computer>? computers1=JsonSerializer.Deserialize<IEnumerable<Computer>>(ComputerJson, options);
-
-            // Deserialization using newtonsoft
-
-            IEnumerable<Computer>? computers1=JsonConvert.DeserializeObject<IEnumerable<Computer>>(ComputerJson);
-
-            if (computers1 != null)
+            JsonSerializerOptions options =new JsonSerializerOptions()
             {
-                foreach(Computer computer in computers1)
+                PropertyNamingPolicy=JsonNamingPolicy.CamelCase
+            };
+            
+            IEnumerable<Computer>? computersSystem=System.Text.Json.JsonSerializer.Deserialize<IEnumerable<Computer>>(ComputerJson, options);
+
+             if (computersSystem != null)
+            {
+                foreach(Computer computer in computersSystem)
                 {
                     Console.WriteLine(computer.Motherboard);
                 }
             }
-        }
+
+
+            // Deserialization using newtonsoft
+
+            IEnumerable<Computer>? computersNewtonSoft=JsonConvert.DeserializeObject<IEnumerable<Computer>>(ComputerJson);
+
+            if (computersNewtonSoft != null)
+            {
+                foreach(Computer computer in computersNewtonSoft)
+                {
+                    Console.WriteLine(computer.Motherboard);
+                }
+            }
+            //serialization using NewtonSoft
+            JsonSerializerSettings settings=new JsonSerializerSettings()
+            {
+                ContractResolver=new CamelCasePropertyNamesContractResolver()
+            };
+
+            string computerCopuNewtonSoft=JsonConvert.SerializeObject(computersNewtonSoft,settings);
+
+            File.WriteAllText("computerCopyNewtonSoft.txt",computerCopuNewtonSoft);
+
+            //serialization using system.text.json
+            string computerCopySystem=System.Text.Json.JsonSerializer.Serialize(computersSystem,options);
+            File.WriteAllText("computerCopySystem.txt",computerCopySystem);
+
+        } 
        
     }
 

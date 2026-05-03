@@ -16,6 +16,7 @@ namespace HelloWorld.Data
             _config=config;
         }
         public DbSet<Computer> Computer{get;set;}
+        public DbSet<User> Users { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
            optionsBuilder.UseSqlServer(_config.GetConnectionString("DefaultConnection"),optionsBuilder=>optionsBuilder.EnableRetryOnFailure());

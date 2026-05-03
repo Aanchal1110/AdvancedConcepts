@@ -190,42 +190,52 @@ namespace HelloWorld
 
 
 
+            //Using Automapper to map between two different models
+
             string ComputerJson2 = File.ReadAllText("ComputerSnake.json");
 
-            var config1 = new AutoMapper.MapperConfiguration(cfg =>
-     {
-         cfg.CreateMap<ComputerSnake, Computer>()
-             .ForMember(dest => dest.ComputerId, opt => opt.MapFrom(src => src.computer_id))
-             .ForMember(dest => dest.CPUCores, opt => opt.MapFrom(src => src.cpu_cores))
-             .ForMember(dest => dest.HasWifi, opt => opt.MapFrom(src => src.has_wifi))
-             .ForMember(dest => dest.HasLTE, opt => opt.MapFrom(src => src.has_lte))
-             .ForMember(dest => dest.Motherboard, opt => opt.MapFrom(src => src.motherboard))
-             .ForMember(dest => dest.VideoCard, opt => opt.MapFrom(src => src.video_card))
-             .ForMember(dest => dest.ReleaseDate, opt => opt.MapFrom(src => src.release_date))
-             .ForMember(dest => dest.Price, opt => opt.MapFrom(src => src.price));
-     });
-            IMapper mapper = config1.CreateMapper();
+    //         var config1 = new AutoMapper.MapperConfiguration(cfg =>
+    //  {
+    //      cfg.CreateMap<ComputerSnake, Computer>()
+    //          .ForMember(dest => dest.ComputerId, opt => opt.MapFrom(src => src.computer_id))
+    //          .ForMember(dest => dest.CPUCores, opt => opt.MapFrom(src => src.cpu_cores))
+    //          .ForMember(dest => dest.HasWifi, opt => opt.MapFrom(src => src.has_wifi))
+    //          .ForMember(dest => dest.HasLTE, opt => opt.MapFrom(src => src.has_lte))
+    //          .ForMember(dest => dest.Motherboard, opt => opt.MapFrom(src => src.motherboard))
+    //          .ForMember(dest => dest.VideoCard, opt => opt.MapFrom(src => src.video_card))
+    //          .ForMember(dest => dest.ReleaseDate, opt => opt.MapFrom(src => src.release_date))
+    //          .ForMember(dest => dest.Price, opt => opt.MapFrom(src => src.price));
+    //  });
+    //         IMapper mapper = config1.CreateMapper();
 
-            IEnumerable<ComputerSnake>? computerSystem = System.Text.Json.JsonSerializer.Deserialize<IEnumerable<ComputerSnake>>(ComputerJson2,options);
+    //         IEnumerable<ComputerSnake>? computerSystem = System.Text.Json.JsonSerializer.Deserialize<IEnumerable<ComputerSnake>>(ComputerJson2,options);
 
-            if (computerSystem != null)
-            {
+    //         if (computerSystem != null)
+    //         {
 
-                IEnumerable<Computer> computerResult=mapper.Map<IEnumerable<Computer>>(computerSystem);
+    //             IEnumerable<Computer> computerResult=mapper.Map<IEnumerable<Computer>>(computerSystem);
 
-                foreach (Computer computer in computerResult)
-                {
+    //             foreach (Computer computer in computerResult)
+    //             {
                    
+    //                 Console.WriteLine(computer.Motherboard);
+    //             }
+    //         }
+
+
+
+            //Without using automapper we would use JsonProperty attributes in the Computer class to map the properties of the computer snake to computer and then deserialize it using newtonsoft or system.text.json as shown below
+
+            IEnumerable<Computer>? computerSystem2 = System.Text.Json.JsonSerializer.Deserialize<IEnumerable<Computer>>(ComputerJson2, options);
+
+            if(computerSystem2 != null)
+            {
+                foreach(Computer computer in computerSystem2)
+                {
                     Console.WriteLine(computer.Motherboard);
                 }
+
             }
-
-
-
-
-
-
-
 
 
         }

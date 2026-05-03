@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "Uir8cQUsy3w=",
+  "dgSpecHash": "qalZHIIVvmU=",
   "success": true,
   "projectFilePath": "C:\\Users\\aanch\\Downloads\\AdvancedConcept\\AdvancedConcepts\\AdvancedConcepts.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\aanch\\.nuget\\packages\\automapper\\14.0.0\\automapper.14.0.0.nupkg.sha512",
+    "C:\\Users\\aanch\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\aanch\\.nuget\\packages\\dapper\\2.1.72\\dapper.2.1.72.nupkg.sha512",
     "C:\\Users\\aanch\\.nuget\\packages\\microsoft.bcl.cryptography\\9.0.13\\microsoft.bcl.cryptography.9.0.13.nupkg.sha512",
     "C:\\Users\\aanch\\.nuget\\packages\\microsoft.data.sqlclient\\7.0.0\\microsoft.data.sqlclient.7.0.0.nupkg.sha512",
@@ -54,7 +54,7 @@
     {
       "code": "NU1903",
       "level": "Warning",
-      "message": "Package 'AutoMapper' 14.0.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-rvv3-g6hj-g44x",
+      "message": "Package 'AutoMapper' 12.0.1 has a known high severity vulnerability, https://github.com/advisories/GHSA-rvv3-g6hj-g44x",
       "projectPath": "C:\\Users\\aanch\\Downloads\\AdvancedConcept\\AdvancedConcepts\\AdvancedConcepts.csproj",
       "warningLevel": 1,
       "filePath": "C:\\Users\\aanch\\Downloads\\AdvancedConcept\\AdvancedConcepts\\AdvancedConcepts.csproj",

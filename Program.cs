@@ -8,6 +8,7 @@ using Microsoft.Extensions.Configuration;
 using System.Text.Json;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion.Internal;
 
 namespace HelloWorld{
 
@@ -140,7 +141,23 @@ namespace HelloWorld{
             {
                 foreach(Computer computer in computersSystem)
                 {
-                    Console.WriteLine(computer.Motherboard);
+                    string sql1 =@"INSERT INTO TAppSchema.Computer (
+        [MotherBoard],
+       [CPUCoreS],
+       [HasWifi],
+       [HasLTE],
+       [Price],
+       [VideoCard],
+       [ReleaseDate]
+        ) VALUES(@MotherBoard,
+    @CPUCoreS,
+    @HasWifi,
+    @HasLTE,
+    @Price,
+    @VideoCard,
+    @ReleaseDate)";
+    
+    dapper.ExecuteSqlWithRowCount(sql1,computer);
                 }
             }
 
@@ -171,6 +188,11 @@ namespace HelloWorld{
             File.WriteAllText("computerCopySystem.txt",computerCopySystem);
 
         } 
+        static string escapeSingleQuotes(string input)
+        {
+            string output=input.Replace("'","''");
+            return output;
+        }
        
     }
 
